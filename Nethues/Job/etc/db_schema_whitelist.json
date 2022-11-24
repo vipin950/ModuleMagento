@@ -1,0 +1,17 @@
+{
+    "nethues_job": {
+        "column": {
+            "id_job": true,
+            "candi_name": true,
+            "candi_email": true,
+            "experience": true,
+            "job_post": true,
+            "created_date": true,
+            "upload_file": true,
+            "is_active": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

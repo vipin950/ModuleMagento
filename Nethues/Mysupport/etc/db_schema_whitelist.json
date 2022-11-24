@@ -1,0 +1,15 @@
+{
+    "mysupport_users": {
+        "column": {
+            "support_id": true,
+            "store_id": true,
+            "change_status_at": true,
+            "support_user_id": true,
+            "support_email": true,
+            "support_status": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

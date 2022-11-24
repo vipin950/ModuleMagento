@@ -1,0 +1,25 @@
+{
+    "apply_job_table": {
+        "column": {
+            "id": true,
+            "name": true,
+            "email": true,
+            "telephone": true,
+            "experiance": true,
+            "jobposts": true,
+            "upload_file": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "job_post_table": {
+        "column": {
+            "job_id": true,
+            "job_post": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

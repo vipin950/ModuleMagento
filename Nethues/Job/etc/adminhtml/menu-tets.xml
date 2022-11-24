@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Nethues_Job::job_apply" title="Job Application" translate="title" module="Nethues_Job" sortOrder="10" resource="Nethues_Job::job_apply"/>
+            <add id="Nethues_Job::job_post1" title="Production" translate="title" module="Nethues_Job" sortOrder="10" parent="Nethues_Job::job_apply"  resource="Nethues_Job::job_post1"/>
+                <add id="Nethues_Job::job_post2" title="Assurance" translate="title" module="Nethues_Job" sortOrder="1" parent="Nethues_Job::job_post1" action="Application/Assurance/" resource="Nethues_Job::job_post2"/>
+                <add id="Nethues_Job::job_post3" title="Control" translate="title" module="Nethues_Job" sortOrder="2" parent="Nethues_Job::job_post1" action="Application/Control/" resource="Nethues_Job::job_post3"/>
+                <add id="Nethues_Job::job_post4" title="Research" translate="title" module="Nethues_Job" sortOrder="3" parent="Nethues_Job::job_post1" action="Application/Research/" resource="Nethues_Job::job_post4"/>
+
+        
+            <add id="Nethues_Job::post1" title="Department Head" translate="title" module="Nethues_Job" sortOrder="20" parent="Nethues_Job::job_apply"   resource="Nethues_Job::post1"/>
+                <add id="Nethues_Job::post2" title="Lead Engineer" translate="title" module="Nethues_Job" sortOrder="1" parent="Nethues_Job::post1" action="Post/Lead_Engineer/" resource="Nethues_Job::post2"/>
+                <add id="Nethues_Job::post3" title="Supervisor" translate="title" module="Nethues_Job" sortOrder="2" parent="Nethues_Job::post1" action="Post/Supervisor/" resource="Nethues_Job::post3"/>
+                <add id="Nethues_Job::post4" title="Developer" translate="title" module="Nethues_Job" sortOrder="3" parent="Nethues_Job::post1" action="Post/Developer/" resource="Nethues_Job::post4"/>
+    
+
+            <add id="Nethues_Job::grades" title="Seniorhead" translate="title" module="Nethues_Job" sortOrder="30" parent="Nethues_Job::job_apply"   resource="Nethues_Job::grades"/>
+                <add id="Nethues_Job::grade1" title="Senior" translate="title" module="Nethues_Job" sortOrder="1" parent="Nethues_Job::grades" action="Post/Senior/" resource="Nethues_Job::grade1"/>
+                <add id="Nethues_Job::grade2" title="Junior" translate="title" module="Nethues_Job" sortOrder="2" parent="Nethues_Job::grades" action="Post/Junior/" resource="Nethues_Job::grade2"/>
+                <add id="Nethues_Job::grade3" title="Engineer" translate="title" module="Nethues_Job" sortOrder="3" parent="Nethues_Job::grades" action="Post/Engineer/" resource="Nethues_Job::grade3"/>
+
+            <add id="Nethues_Job::testing" title="Testing" translate="title" module="Nethues_Job" sortOrder="40" parent="Nethues_Job::job_apply"   resource="Nethues_Job::testing"/>
+                <add id="Nethues_Job::testing1" title="Quality" translate="title" module="Nethues_Job" sortOrder="1" parent="Nethues_Job::testing" action="Post/Senior/" resource="Nethues_Job::testing1"/>
+                <add id="Nethues_Job::testing2" title="Black Box" translate="title" module="Nethues_Job" sortOrder="2" parent="Nethues_Job::testing" action="Post/Junior/" resource="Nethues_Job::testing2"/>
+                <add id="Nethues_Job::testing3" title="Automation" translate="title" module="Nethues_Job" sortOrder="3" parent="Nethues_Job::testing" action="Post/Engineer/" resource="Nethues_Job::testing3"/>
+
+            <add id="Nethues_Job::outsource" title="OutSource" translate="title" module="Nethues_Job" sortOrder="40" parent="Nethues_Job::job_apply"   resource="Nethues_Job::outsource"/>
+                <add id="Nethues_Job::outsource1" title="India" translate="title" module="Nethues_Job" sortOrder="1" parent="Nethues_Job::outsource" action="Post/Senior/" resource="Nethues_Job::outsource1"/>
+                <add id="Nethues_Job::outsource2" title="Europe" translate="title" module="Nethues_Job" sortOrder="2" parent="Nethues_Job::outsource" action="Post/Junior/" resource="Nethues_Job::outsource2"/>
+                <add id="Nethues_Job::outsource3" title="USA" translate="title" module="Nethues_Job" sortOrder="3" parent="Nethues_Job::outsource" action="Post/Engineer/" resource="Nethues_Job::outsource3"/>
+
+
+            <add id="Nethues_Job::Offers" title="New Offers" translate="title" module="Nethues_Job" sortOrder="40" parent="Nethues_Job::job_apply"   resource="Nethues_Job::Offers"/>
+                <add id="Nethues_Job::Offers1" title="Discount" translate="title" module="Nethues_Job" sortOrder="1" parent="Nethues_Job::Offers" action="Post/Senior/" resource="Nethues_Job::Offers1"/>
+                <add id="Nethues_Job::Offers2" title="Sale" translate="title" module="Nethues_Job" sortOrder="2" parent="Nethues_Job::Offers" action="Post/Junior/" resource="Nethues_Job::Offers2"/>
+                <add id="Nethues_Job::Offers3" title="Clearence" translate="title" module="Nethues_Job" sortOrder="3" parent="Nethues_Job::Offers" action="Post/Engineer/" resource="Nethues_Job::Offers3"/>
+                
+                
+
+            <add id="Nethues_Job::tech" title="Technical" translate="title" module="Nethues_Job" sortOrder="40" parent="Nethues_Job::job_apply"   resource="Nethues_Job::tech"/>
+                <add id="Nethues_Job::tech1" title="Server" translate="title" module="Nethues_Job" sortOrder="1" parent="Nethues_Job::tech" action="Post/Senior/" resource="Nethues_Job::tech1"/>
+                <add id="Nethues_Job::tech2" title="System" translate="title" module="Nethues_Job" sortOrder="2" parent="Nethues_Job::tech" action="Post/Junior/" resource="Nethues_Job::tech2"/>
+                <add id="Nethues_Job::tech3" title="API" translate="title" module="Nethues_Job" sortOrder="3" parent="Nethues_Job::tech" action="Post/Engineer/" resource="Nethues_Job::tech3"/>
+
+
+
+
+            <add id="Nethues_Job::blogpost" title="Blog Post" translate="title" module="Nethues_Job" sortOrder="40" parent="Nethues_Job::job_apply"   resource="Nethues_Job::blogpost"/>
+                <add id="Nethues_Job::blogpost1" title="Inhouse" translate="title" module="Nethues_Job" sortOrder="1" parent="Nethues_Job::blogpost" action="Post/Senior/" resource="Nethues_Job::blogpost1"/>
+                <add id="Nethues_Job::blogpost2" title="Content writers" translate="title" module="Nethues_Job" sortOrder="2" parent="Nethues_Job::blogpost" action="Post/Junior/" resource="Nethues_Job::blogpost2"/>
+                <add id="Nethues_Job::blogpost3" title="Guest" translate="title" module="Nethues_Job" sortOrder="3" parent="Nethues_Job::blogpost" action="Post/Engineer/" resource="Nethues_Job::blogpost3"/>
+
+
+
+            <add id="Nethues_Job::articles" title="Articles" translate="title" module="Nethues_Job" sortOrder="40" parent="Nethues_Job::job_apply"   resource="Nethues_Job::articles"/>
+                <add id="Nethues_Job::articles1" title="Mobile" translate="title" module="Nethues_Job" sortOrder="1" parent="Nethues_Job::articles" action="Post/Senior/" resource="Nethues_Job::articles1"/>
+                <add id="Nethues_Job::articles2" title="Computer" translate="title" module="Nethues_Job" sortOrder="2" parent="Nethues_Job::articles" action="Post/Junior/" resource="Nethues_Job::articles2"/>
+                <add id="Nethues_Job::articles3" title="Jobs" translate="title" module="Nethues_Job" sortOrder="3" parent="Nethues_Job::articles" action="Post/Engineer/" resource="Nethues_Job::articles3"/>
+                <add id="Nethues_Job::articles4" title="SI-FI" translate="title" module="Nethues_Job" sortOrder="3" parent="Nethues_Job::articles" action="Post/Engineer/" resource="Nethues_Job::articles4"/>
+                <add id="Nethues_Job::articles5" title="Movies" translate="title" module="Nethues_Job" sortOrder="3" parent="Nethues_Job::articles" action="Post/Engineer/" resource="Nethues_Job::articles5"/>
+                <add id="Nethues_Job::articles6" title="Programming" translate="title" module="Nethues_Job" sortOrder="3" parent="Nethues_Job::articles" action="Post/Engineer/" resource="Nethues_Job::articles6"/>
+
+
+
+
+
+
+
+    </menu>
+</config>

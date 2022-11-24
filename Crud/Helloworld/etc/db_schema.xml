@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+     <table name="students_table" resource="default" comment="Students Table">
+        <column xsi:type="int" name="id" identity="true" comment="Id" />
+        <column xsi:type="varchar" name="title" length="1024" nullable="false" comment="Title" />
+               <column xsi:type="varchar" name="description" length="1024" nullable="false" comment="Description" />       
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+    </table>
+
+ <!-- <table name="students_table_form_custom" resource="default" comment="Students Table"  onCreate="migrateDataFromAnotherTable(students_table_form)">
+
+        <column xsi:type="int" name="id" identity="true" comment="Id" />
+        <column xsi:type="varchar" name="title" length="1024" nullable="false" comment="Title" />
+
+                <column xsi:type="text" name="description"  nullable="false" comment="Description" />  
+
+        <column xsi:type="int" name="Telephone" nullable="false" comment="Telephone" 
+onCreate="migrateDataFrom(Mobile)" /> 
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+    </table> -->
+     <!-- <table name="newsletter_subscriber" resource="default" engine="innodb" comment="Newsletter Subscriber">
+        <column xsi:type="text" name="description"  nullable="false" comment="Description" /> 
+      </table>  -->
+
+       <table name="students_table_form_table" resource="default" comment="Students Table"  >
+        <column xsi:type="int" name="id" identity="true" comment="Id" />
+
+        <column xsi:type="varchar" name="title" length="255" nullable="false" comment="Title" />
+
+        <column xsi:type="text" name="description"  nullable="false" comment="Description" />  
+
+        <column xsi:type="int" name="selectdata"  nullable="false" comment="selectdata" /> 
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+    </table> 
+    
+</schema>

@@ -1,0 +1,68 @@
+<?php $members = $block->getCollection();
+
+if ($members->count()>0) {
+?>
+  <button>
+    <a href="<?= $this->getUrl('job/apply/index'); ?>" class="btn btn-success float-end index_view  "><?php echo __('+Apply job') ?></a>
+                    </button>
+    <table class="data table table-order-items "> 
+        <caption class="table-caption">Add Data</caption>
+        <thead>
+        <tr>
+            <th><?php echo __('ID') ?></th>
+            <th><?php echo __('Name') ?></th>
+            <th><?php echo __('Email') ?></th>
+            <th><?php echo __('TelePhone') ?></th>
+            <th><?php echo __('Experience') ?></th>
+            <th><?php echo __('Job Posts') ?></th>
+            <th><?php echo __('Action') ?></th>
+        </tr>
+        </thead>
+   <tbody>
+    
+    <?php
+     foreach($members as $key=>$item)
+    {
+        ?>
+        <tr>
+        <td>
+        <?php echo $item->getId(); ?>
+        </td>
+        <td >
+        <?php echo $item->getName(); ?>
+        </td>
+        <td>
+        <?php echo $item->getEmail(); ?>
+        </td>
+        <td>
+        <?php echo $item->getTelephone();?>
+        </td>
+        <td>
+        <?php echo $item->getExperiance();?>
+        </td>
+        <td>
+        <?php echo $item->getJobposts();?>
+        </td>
+        <td>
+        <a href='<?php echo $this->getUrl('job/apply/delete/id/'.$item->getId(), ['_secure' => true])?>'>Delete</a>
+        &nbsp; &nbsp;
+        <a href='<?php echo $this->getUrl('job/apply/index/id/'.$item->getId(), ['_secure' => true])?>'>Edit</a> &nbsp; &nbsp;
+        <a href='<?php echo $this->getUrl('job/apply/viewdata/id/'.$item->getId(), ['_secure' => true])?>' id="viewdata">View</a>
+        </td>
+    </tr>
+<?php 
+    }
+    ?>
+  </tbody>
+</table>
+    <?php 
+}
+
+else 
+{
+ echo "No data Found Here";
+}
+?>
+
+
+

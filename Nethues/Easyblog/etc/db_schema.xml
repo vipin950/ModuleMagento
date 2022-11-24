@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+   <table name="nethues_blog" resource="default" engine="innodb" comment="blog tabble to store blog data">
+      <column xsi:type="int" name="id_blog" identity="true" unsigned="true" nullable="false" comment="blog uniqe id"/>
+      <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Title" />
+      <column xsi:type="varchar" name="description" nullable="false" length="255" comment="Descrition" />
+      <column xsi:type="smallint" name="status"  default="1" unsigned="true" nullable="false"  comment="blog status" />
+      <column xsi:type="timestamp" name="created_date" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+comment="Created At"/>
+      <constraint xsi:type="primary" referenceId="PRIMARY">
+         <column name="id_blog" />
+      </constraint>
+   </table>
+
+   <table name="nethues_blog_content" resource="default" engine="innodb" comment="blog tabble to store blog data">
+      <column xsi:type="int" name="id_blog_content" identity="true" unsigned="true" nullable="false" comment="blog content uniqe id"/>
+      <column xsi:type="int" name="id_blog" unsigned="true" nullable="false" comment="blog uniqe id foriegn key"/>
+      <column xsi:type="text" name="description" nullable="false"  comment="Descrition" />
+      <column xsi:type="varchar" name="author" nullable="false"  comment="author name" />
+      
+      <constraint xsi:type="foreign" referenceId="NETH_BLOG_ID_NETH_BLOG_CONTENT_ID" table="nethues_blog_content" column="id_blog" referenceTable="nethues_blog" referenceColumn="id_blog" onDelete="CASCADE"/>
+
+      <constraint xsi:type="primary" referenceId="PRIMARY">
+         <column name="id_blog_content" />
+      </constraint>
+   </table>
+
+
+
+</schema>

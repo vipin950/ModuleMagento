@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="mysupport_users" resource="default" engine="innodb" comment="My support user">
+        <column xsi:type="int" name="support_id" unsigned="true" nullable="false" identity="true"
+                comment="support id"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="true" identity="false"
+                default="0" comment="Store ID"/>
+        <column xsi:type="timestamp" name="change_status_at" on_update="false" nullable="true"
+                comment="Change Status At"/>
+        <column xsi:type="int" name="support_user_id" unsigned="true" nullable="false" identity="false"
+                default="0" comment="suport user ID"/>
+        <column xsi:type="varchar" name="support_email" nullable="true" length="150" comment="support_email"/>
+        <column xsi:type="int" name="support_status" unsigned="false" nullable="false" identity="false"
+                default="0" comment="Support Status"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="support_id"/>
+        </constraint>
+    </table>
+
+</schema>

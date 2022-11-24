@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        
+        <add id="Nethues_Rentocar::carrentmain" title="Car Rent" translate="title" module="Nethues_Rentocar" sortOrder="15"  resource="Nethues_Rentocar::carr"/>
+
+        <add id="Nethues_Rentocar::cars" title="Cars" translate="title" module="Nethues_Rentocar" parent="Nethues_Rentocar::carrentmain" sortOrder="10"  action="car/all" resource="Nethues_Rentocar::cars"/>
+
+
+    </menu>
+</config>

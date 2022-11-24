@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+
+        
+
+
+        <add id="Nethues_Job::job_apply" title="Job Application" translate="title" module="Nethues_Job" resource="Nethues_Job::job_apply"/>
+            
+        <add id="Nethues_Job::job_post1" title="Production" translate="title" module="Nethues_Job" sortOrder="11" parent="Nethues_Job::job_apply"   resource="Nethues_Job::job_post1"/>
+            
+            <add id="Nethues_Job::job_post2" title="Assurance" translate="title" module="Nethues_Job" sortOrder="12" parent="Nethues_Job::job_post1" action="Application/Assurance/" resource="Nethues_Job::job_post2"/>
+            
+            <add id="Nethues_Job::job_post3" title="Control" translate="title" module="Nethues_Job" sortOrder="13" parent="Nethues_Job::job_post1" action="Application/Control/" resource="Nethues_Job::job_post3"/>
+            
+            <add id="Nethues_Job::job_post4" title="Research" translate="title" module="Nethues_Job" sortOrder="14" parent="Nethues_Job::job_post1" action="Application/Research/" resource="Nethues_Job::job_post4"/>
+
+       
+
+        <add id="Nethues_Job::post1" title="Department Head" translate="title" module="Nethues_Job"   resource="Nethues_Job::post1" parent="Nethues_Job::job_apply" />
+
+            <add id="Nethues_Job::post2" title="Lead Engineer" translate="title" module="Nethues_Job" sortOrder="16" parent="Nethues_Job::post1" action="Post/Lead_Engineer/" resource="Nethues_Job::post2"/>
+            
+            <add id="Nethues_Job::post3" title="Supervisor" translate="title" module="Nethues_Job" sortOrder="17" parent="Nethues_Job::post1" action="Post/Supervisor/" resource="Nethues_Job::post3"/>
+            
+            <add id="Nethues_Job::post4" title="Developer" translate="title" module="Nethues_Job" sortOrder="18" parent="Nethues_Job::post1" action="Post/Developer/" resource="Nethues_Job::post4"/>
+ 
+
+         <add id="Nethues_Job::grades" title="Seniorhead" translate="title" module="Nethues_Job" parent="Nethues_Job::job_apply"    resource="Nethues_Job::grades"/>
+            <add id="Nethues_Job::grade1" title="Senior" translate="title" module="Nethues_Job" sortOrder="21" parent="Nethues_Job::grades" action="Post/Senior/" resource="Nethues_Job::grade1"/>
+            <add id="Nethues_Job::grade2" title="Junior" translate="title" module="Nethues_Job" sortOrder="22" parent="Nethues_Job::grades" action="Post/Junior/" resource="Nethues_Job::grade2"/>
+            <add id="Nethues_Job::grade3" title="Engineer" translate="title" module="Nethues_Job" sortOrder="23" parent="Nethues_Job::grades" action="Post/Engineer/" resource="Nethues_Job::grade3"/>
+
+
+
+
+
+    </menu>
+</config>

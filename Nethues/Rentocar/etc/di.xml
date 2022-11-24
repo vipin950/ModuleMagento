@@ -1,0 +1,18 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="car_list_data_source" xsi:type="string">Nethues\Rentocar\Model\ResourceModel\Car\Car\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+     <type name="Nethues\Rentocar\Model\ResourceModel\Car\Car\Collection" >
+        <arguments>
+            <argument name="mainTable" xsi:type="string">nethues_rentocar</argument>
+            <argument name="eventPrefix" xsi:type="string">nethues_rentocar_car_car_collection</argument>
+            <argument name="eventObject" xsi:type="string">nethues_rentocar_car_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Nethues\Rentocar\Model\ResourceModel\Car</argument>
+        </arguments>
+    </type>
+     <preference for="Nethues\Rentocar\Api\BlockRepositoryInterface" type="Nethues\Rentocar\Model\BlockRepository" /> 
+</config>

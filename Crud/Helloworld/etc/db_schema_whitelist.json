@@ -1,0 +1,50 @@
+{
+    "students_table": {
+        "column": {
+            "id": true,
+            "title": true,
+            "description": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "inchoo_declarative_schema2": {
+        "column": {
+            "tableid": true,
+            "content": true,
+            "Mobile": true,
+            "table_2_id": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "students_table_form": {
+        "column": {
+            "id": true,
+            "title": true,
+            "description": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "students_table_form_custom": {
+        "column": {
+            "id": true,
+            "title": true,
+            "description": true,
+            "Mobile": true,
+            "Telephone": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "newsletter_subscriber": {
+        "column": {
+            "description": true
+        }
+    }
+}

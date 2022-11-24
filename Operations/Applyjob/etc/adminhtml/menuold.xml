@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+       <add id="Operations_Applyjob::job" title="Job Application" translate="title" module="Operations_Applyjob" sortOrder="15"  resource="Operations_Applyjob::job"/>
+<!-- first label menu -->
+         <add id="Operations_Applyjob::promo" title="Promotions" translate="title" module="Operations_Applyjob" parent="Operations_Applyjob::job" sortOrder="10" resource="Operations_Applyjob::promo"/>
+
+           <add id="Operations_Applyjob::apply_job" title="Apply Job" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::promo" action="index/index/" resource="Operations_Applyjob::apply_job"/>
+
+           <add id="Operations_Applyjob::application" title="Applications" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::promo" action="index/tranning/" resource="Operations_Applyjob::application"/> 
+
+          <add id="Operations_Applyjob::job_application" title="Job Applications" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::promo" action="index/tranning/" resource="Operations_Applyjob::job_application"/>  
+<!-- end first label menu -->
+
+
+<!--  second label menu -->
+          <add id="Operations_Applyjob::job_type" title="Job Type" translate="title" module="Operations_Applyjob" parent="Operations_Applyjob::job" sortOrder="10" resource="Operations_Applyjob::mymenu"/>
+
+          <add id="Operations_Applyjob::gob_job" title="Gov Job" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::job_type" action="index/index/" resource="Operations_Applyjob::gob_job"/>
+
+          <add id="Operations_Applyjob::it_sector" title="It Sector" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::job_type" action="index/tranning/" resource="Operations_Applyjob::it_sector"/> 
+
+             <!-- end second label menu -->
+
+
+             <!--  third label menu -->
+            <add id="Operations_Applyjob::desiner" title="Designer" translate="title" module="Operations_Applyjob" parent="Operations_Applyjob::job" sortOrder="10" resource="Operations_Applyjob::desiner"/>
+
+          <add id="Operations_Applyjob::html" title="HTML" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::desiner" action="index/index/" resource="Operations_Applyjob::html"/>
+
+          <add id="Operations_Applyjob::css" title="CSS" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::desiner" action="index/tranning/" resource="Operations_Applyjob::css"/> 
+
+            <add id="Operations_Applyjob::javascript" title="JAVASCRIPT" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::desiner" action="index/tranning/" resource="Operations_Applyjob::javascript"/>
+
+            <add id="Operations_Applyjob::react" title="REACT" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::desiner" action="index/tranning/" resource="Operations_Applyjob::react"/>
+
+
+             <!-- end third label menu -->
+
+
+
+<!--  fourth label menu -->
+      <add id="Operations_Applyjob::gov_type" title="Different Type Gov" translate="title" module="Operations_Applyjob" parent="Operations_Applyjob::job" sortOrder="10" resource="Operations_Applyjob::mymenu"/>
+
+           <add id="Operations_Applyjob::ssc_gd" title="SSC GD " translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::gov_type" action="index/index/" resource="Operations_Applyjob::ssc_gd"/>
+
+           <add id="Operations_Applyjob::ssc_chsl" title="SSC CHSL" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::gov_type" action="index/tranning/" resource="Operations_Applyjob::ssc_chsl"/> 
+
+             <add id="Operations_Applyjob::ssc_mts" title="SSC MTS" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::gov_type" action="index/tranning/" resource="Operations_Applyjob::ssc_mts"/> 
+
+               <add id="Operations_Applyjob::drdo" title="DRDO" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::gov_type" action="index/tranning/" resource="Operations_Applyjob::drdo"/> 
+
+                 <add id="Operations_Applyjob::coast_guard" title="Coast Guard" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::gov_type" action="index/tranning/" resource="Operations_Applyjob::coast_guard"/> 
+
+                   <add id="Operations_Applyjob::indian_navy" title="Indian Navy" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::gov_type" action="index/tranning/" resource="Operations_Applyjob::indian_navy"/> 
+
+<!--  end fourth label menu -->
+
+<!--  fourth label menu -->
+ <add id="Operations_Applyjob::technology" title="Technology" translate="title" module="Operations_Applyjob" parent="Operations_Applyjob::job" sortOrder="10" resource="Operations_Applyjob::technology"/>
+
+           <add id="Operations_Applyjob::php" title="PHP" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::technology" action="index/index/" resource="Operations_Applyjob::php"/>
+
+           <add id="Operations_Applyjob::python" title="PYTHON" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::technology" action="index/tranning/" resource="Operations_Applyjob::python"/> 
+
+            <add id="Operations_Applyjob::java" title="JAVA" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::technology" action="index/tranning/" resource="Operations_Applyjob::java"/>
+
+            <add id="Operations_Applyjob::node" title="NODE" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::technology" action="index/tranning/" resource="Operations_Applyjob::node"/>
+
+              <!-- <add id="Operations_Applyjob::mern" title="MERN" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::technology" action="index/tranning/" resource="Operations_Applyjob::mern"/> -->
+
+<!-- end  fourth label menu -->
+
+<!-- fifth  fourth label menu -->
+ <add id="Operations_Applyjob::developer" title="Developer" translate="title" module="Operations_Applyjob" parent="Operations_Applyjob::job" sortOrder="10" resource="Operations_Applyjob::developer"/>
+
+           <add id="Operations_Applyjob::backend" title="Backend dev" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::developer" action="index/index/" resource="Operations_Applyjob::backend"/>
+
+              <add id="Operations_Applyjob::frontend" title="Frontend Dev" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::developer" action="index/index/" resource="Operations_Applyjob::frontend"/>
+
+           <add id="Operations_Applyjob::software" title="Software dev" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::developer" action="index/tranning/" resource="Operations_Applyjob::software"/> 
+
+            <add id="Operations_Applyjob::bigdata" title="Big Data dev" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::developer" action="index/tranning/" resource="Operations_Applyjob::bigdata"/>
+
+         
+
+<!-- end  fifth label menu -->
+
+<!--six label menu-->
+ <add id="Operations_Applyjob::marketing" title="Marketing" translate="title" module="Operations_Applyjob" parent="Operations_Applyjob::job" sortOrder="10" resource="Operations_Applyjob::marketing"/>
+
+           <add id="Operations_Applyjob::email" title="Email Marketing" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::marketing" action="index/index/" resource="Operations_Applyjob::email"/>
+
+              <add id="Operations_Applyjob::product_mark" title="Product Marketing" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::marketing" action="index/index/" resource="Operations_Applyjob::product_mark"/>
+
+           <add id="Operations_Applyjob::emark" title="Event Marketing" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::marketing" action="index/tranning/" resource="Operations_Applyjob::emark"/> 
+
+            <add id="Operations_Applyjob::gmark" title="Growth Marketing" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::marketing" action="index/tranning/" resource="Operations_Applyjob::gmark"/>
+
+<!--end six level-->
+
+<!-- seven level-->
+ <add id="Operations_Applyjob::bi" title="Bussiness Intelligence" translate="title" module="Operations_Applyjob" parent="Operations_Applyjob::job" sortOrder="10" resource="Operations_Applyjob::bi"/>
+
+           <add id="Operations_Applyjob::adr" title="Advanced Reporting" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::bi" action="index/index/" resource="Operations_Applyjob::adr"/>
+
+              <add id="Operations_Applyjob::biess" title="BI Essentials" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::bi" action="index/index/" resource="Operations_Applyjob::biess"/>
+
+           <add id="Operations_Applyjob::ypa" title="Youpto Analysis" translate="title" module="Operations_Applyjob" sortOrder="10" parent="Operations_Applyjob::bi" action="index/tranning/" resource="Operations_Applyjob::ypa"/> 
+
+    
+
+<!--end seven level-->
+
+    </menu>
+</config>

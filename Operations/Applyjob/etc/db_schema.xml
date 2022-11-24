@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+   
+       <table name="apply_job_table" resource="default" comment="Register Table">
+        <column xsi:type="int" name="id" identity="true" comment="Id" unsigned="true" nullable="false" />
+        <column xsi:type="varchar" name="name" length="255" nullable="false" comment="name" />
+        <column xsi:type="text" name="email"  nullable="false" comment="email" />  
+        <column xsi:type="text" name="telephone"  nullable="false" comment="telephone"/>  
+        <column xsi:type="varchar" name="experiance"  nullable="false" comment="status" length="20" /> 
+         <column xsi:type="varchar" name="jobposts"  nullable="false" comment="status" length="20" /> 
+       <column xsi:type="varchar" name="upload_file"  nullable="false" comment="uploadFile" length="200" /> 
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id" />
+        </constraint>
+    </table> 
+
+     <table name="job_post_table" resource="default" comment="JobPost Table">
+        <column xsi:type="int" name="job_id" identity="true" comment="job Id" unsigned="true" nullable="false" />
+        <column xsi:type="varchar" name="job_post" length="255" nullable="false" comment="job_post"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="job_id" />
+        </constraint>
+    </table>
+    
+</schema>

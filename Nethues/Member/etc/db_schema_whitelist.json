@@ -1,0 +1,14 @@
+{
+    "nethues_member": {
+        "column": {
+            "id_member": true,
+            "fname": true,
+            "lname": true,
+            "status": true,
+            "created_date": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

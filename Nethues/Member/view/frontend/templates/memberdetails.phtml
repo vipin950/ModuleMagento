@@ -1,0 +1,23 @@
+<?php
+ $member_data  =  $block->editMember();
+ //echo $member_data->getFname();
+
+ 
+ 
+ //exit;
+?>
+
+
+<div class="table-wrapper orders-history">
+ 
+     
+            <p class="memberdata"><span ><strong>Member ID :   </strong></span> <?php echo $member_data->getIdMember() ?>  </p>
+            
+            <p class="memberdata"><span ><strong>Frist Name :   </strong></span><?php echo $member_data->getfname() ?></p>
+          
+            <p class="memberdata"><span ><strong>Last Name :   </strong></span><?php echo $member_data->getLname() ?></p>
+            
+            <p class="memberdata"><span ><strong>Activation Status :   </strong></span><?php echo $member_data->getIdMember() ?></p>
+           
+</div>
+

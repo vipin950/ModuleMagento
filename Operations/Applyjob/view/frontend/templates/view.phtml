@@ -1,0 +1,92 @@
+<?php $viewModel = $block->getViewModel();
+   ?>
+<div class="row">
+   <div class="col-md-8">
+      <form name="addData" method="post" id="addData" class="form" action="<?= $block->getFormAction(); ?>" enctype="multipart/form-data"
+         data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+         data-mage-init='{"validation":{}}'>
+         <fieldset class="fieldset">
+            <legend class="legend"><span><?= $block->escapeHtmlAttr(__('Apply Here')) ?></span></legend>
+            <fieldset class="fieldset row">
+               <div class="fields col-md-6">
+
+                  <div class="field title required">
+                     <label class="label" for="title"><span><?= $block->
+                        escapeHtmlAttr(__('Candidate Name')) ?></span></label>
+                     <div class="control">
+                        <input name="name" id="name" title="Name"  class="input-text" type="text" value="<?= $block->escapeHtmlAttr($viewModel->getUserName()) ?>"
+                           data-validate="{required:true, 'validate-alphanum-with-spaces':true,'validate-not-number-first':true}">
+                     </div>
+                  </div>
+
+                  <div class="field email required">
+                     <label class="label" for="title"><span><?= $block->
+                        escapeHtmlAttr(__('Email')) ?></span></label>
+                     <div class="control">
+                        <input name="email" id="email" title="Email"  class="input-text" type="text"  value="<?= $block->escapeHtmlAttr($viewModel->getUserEmail()) ?>"
+                           data-validate="{required:true, 'validate-email':true}">
+                     </div>
+                  </div>
+
+                  <div class="field Telephone required">
+                     <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Telephone')) ?></span></label>
+                     <div class="control">
+                        <input name="telephone" id="telephone" title="Telephone"  class="input-text"
+                           type="text"  value="<?= $block->escapeHtmlAttr($viewModel->getUserTelephone()) ?>" data-validate="{required:true}">
+                     </div>
+                  </div>
+
+                  <div class="field Experiance ">
+                     <label class="label" for="status"><span><?= $block->
+                        escapeHtmlAttr(__('Experiance')) ?></span></label>
+                     <div class="control">
+                        <?php $selectedExperience = $block->escapeHtmlAttr($viewModel->getUserExperiance()) ?>
+                        <select name="experiance" data-validate="{ 'validate-select':true}">
+                           <option value=""><?= $block->escapeHtml(__('-- Please Select --')) ?></option>
+                           <option value="0" <?= ($selectedExperience == 0) ? 'selected' : '' ?>><?= $block->escapeHtml(__('Fresher')) ?></option>
+                           <option value="1" <?= ($selectedExperience == 1) ? 'selected' : '' ?>>1</option>
+                           <option value="2" <?= ($selectedExperience == 2) ? 'selected' : '' ?>>2</option>
+                           <option value="3" <?= ($selectedExperience == 3) ? 'selected' : '' ?>>3</option>
+                           <option value="4" <?= ($selectedExperience == 4) ? 'selected' : '' ?>>4</option>
+                        </select>
+                     </div>
+                  </div>
+
+                  <div class="field Job Posts ">
+                     <label class="label" for="status"><span><?= $block->
+                        escapeHtmlAttr(__('Job Posts')) ?></span></label>
+                     <div class="control">
+                        <?php $selectedPost = $block->escapeHtmlAttr($viewModel->getUserJobposts()) ?>
+                        <select name="jobposts" data-validate="{ 'validate-select':true}">
+                           <option value=""><?= $block->escapeHtml(__('-- Please Select --')) ?></option>
+                           <option value="0" <?= ($selectedPost == 0) ? 'selected' : '' ?>><?= $block->escapeHtml(__('Fresher')) ?></option>
+                           <option value="1" <?= ($selectedPost == 1) ? 'selected' : '' ?>><?= $block->escapeHtml(__('Junior SE')) ?></option>
+                           <option value="2" <?= ($selectedPost == 2) ? 'selected' : '' ?>><?= $block->escapeHtml(__('SE')) ?></option>
+                           <option value="3" <?= ($selectedPost == 3) ? 'selected' : '' ?>><?= $block->escapeHtml(__('Senior SE')) ?></option>
+                           <option value="4" <?= ($selectedPost == 4) ? 'selected' : '' ?>><?= $block->escapeHtml(__('Team Lead')) ?></option>
+                        </select>
+                     </div>
+                  </div>
+
+                  <div class="field File required">
+                     <label class="label" for="file"><span><?= $block->escapeHtmlAttr(__('Upload File')) ?></span></label>
+                     <div class="control">
+                        <input name="upload_file" id="upload_file" title="upload_file"  class="input-file"
+                           type="file"  data-validate="{'required-file':true}">
+                     </div>
+                  </div>
+
+               </div>
+            </fieldset>
+         </fieldset>
+         
+         <div class="actions-toolbar">
+            <div class="primary">
+               <button type="submit" class="action submit primary" title="Save"  ><span><?= $block->
+                  escapeHtmlAttr(__('Apply Job')) ?></span></button>
+            </div>
+         </div>
+      </form>
+   </div>
+</div>
+<br><br>

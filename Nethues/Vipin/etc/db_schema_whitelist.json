@@ -1,0 +1,11 @@
+{
+    "nethues_vipin": {
+        "column": {
+            "id_vipin": true,
+            "candi_name": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

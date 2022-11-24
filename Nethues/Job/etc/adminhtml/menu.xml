@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Nethues_Job::jobapply" title="Job" translate="title" module="Nethues_Job" sortOrder="15"  resource="Nethues_Job::jobapply"/>
+    
+        <add id="Nethues_Job::candidate" title="Candidate" translate="title" module="Nethues_Job" parent="Nethues_Job::jobapply" sortOrder="10"  action="job/candidate" resource="Nethues_Job::candidate"/>
+
+
+        <add id="Nethues_Job::myproducts" title="C-Products" translate="title" module="Nethues_Job" sortOrder="15"  resource="Nethues_Job::myproducts"/>
+      
+        <!-- <add id="Nethues_Job::myproductslist" title="Products" translate="title" module="Magento_Catalog" sortOrder="10" parent="Nethues_Job::myproducts" action="catalog/product/" resource="Magento_Catalog::products"/> -->
+
+        <add id="Nethues_Job::myproductslist" title="List All Products" translate="title" module="Magento_Catalog" sortOrder="10" parent="Nethues_Job::myproducts" action="job/product/" resource="Magento_Catalog::products"/>
+
+         
+
+
+
+            <!-- <add id="Nethues_Job::joboption" title="Apply Job" translate="title" module="Nethues_Job" sortOrder="10" parent="Nethues_Job::promo"  action="job/index" resource="Nethues_Job::Jobs"/>
+            <add id="Nethues_Job::joboption2" title="Applications" translate="title" module="Nethues_Job" sortOrder="11" parent="Nethues_Job::promo"  action="job/applications" resource="Nethues_Job::applications"/> -->
+
+       
+
+    </menu>
+</config>

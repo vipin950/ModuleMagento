@@ -1,0 +1,62 @@
+<?php
+// $id = $_GET['id_member'];
+// $member_data = $block->getMemberById($id);
+// echo "<pre >";
+// print_r($member_data); exit;
+?>
+<div class="row">
+    <div class="col-md-8">
+        <form name="addData" method="post" id="addData" class="form"
+        action="<?php echo $block->getFormAction(); ?>"
+              data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+              data-mage-init='{"validation":{}}'>
+            
+            <fieldset class="fieldset">
+                <legend class="legend"><span><?= $block->escapeHtmlAttr(__('Fill Member Details carefully')) ?></span></legend>
+                <fieldset class="fieldset row">
+                    <div class="fields col-md-6">
+
+                        <div class="field fname required">
+                            <label class="label" for="name"><span><?= $block->
+                                escapeHtmlAttr(__('First Name')) ?></span></label>
+                            <div class="control">
+                                <input name="fname" id="fname" title="Member's first name" value="<?= (isset($_POST['fname']))? $_POST['fname']:''; ?>" class="input-text validate-alpha" type="text"
+                                data-validate="{required:true}"   >
+                            </div>
+                        </div>
+
+                        <div class="field lname required">
+                            <label class="label" for="lname"><span><?= $block->
+                                escapeHtmlAttr(__('Last Name')) ?></span></label>
+                            <div class="control">
+                                <input name="lname" id="lname" title="Member's last name" value="<?= $block->getPostData('lname'); ?>" class="input-text" type="text"
+                                       data-validate="{required:true}">
+                            </div>
+                        </div>
+
+                        
+                        <div class="field name ">
+                            <label class="label" for="title"><span><?= $block->
+                                escapeHtmlAttr(__('Status')) ?></span></label>
+                            <div class="control">
+                              <select name="status"> 
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+
+                             </select>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </fieldset>
+         
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action submit primary" title="submit"><span><?= $block->
+                        escapeHtmlAttr(__('Submit')) ?></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

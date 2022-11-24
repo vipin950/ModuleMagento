@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+       <add id="Operations_Applyjob::job" title="Job" translate="title" module="Operations_Applyjob" sortOrder="15"  resource="Operations_Applyjob::job"/>
+
+         <add id="Operations_Applyjob::candidate" title="Candidate" translate="title" module="Operations_Applyjob" parent="Operations_Applyjob::job" sortOrder="10" resource="Operations_Applyjob::candidate" action="job/candidate"/>
+
+       
+<!-- end first label menu -->
+
+
+    </menu>
+</config>

@@ -1,0 +1,183 @@
+<?php
+//  $members = $block->getMembers(); 
+// foreach($members as $key => $member)
+// {
+//     echo $member->getIdMember();
+//     echo "<br />";
+//     echo $member->getFname();
+//     echo "<br />";
+    
+// }
+?>
+
+
+<?php
+ $jobapplications = $block->getCandidates(); 
+ //echo "<pre>";
+ //print_r($jobapplications->getItems()); 
+// print_r($jobapplications); 
+ //exit;
+ 
+if (count($jobapplications)) {
+?>
+<div class="table-wrapper orders-history">
+    <a class="action primary checkout" style="float:right" href="<?= $this->getUrl('job/apply/') ?>">New Application</a>
+    <table class="data table table-order-items history" id="my-orders-table">
+        <caption class="table-caption"><?php echo __('Grid Record') ?></caption>
+        <thead>
+        <tr>
+            <th scope="col" class="col id_job"><?php echo __('ID') ?></th>
+            <th scope="col" class="col name"><?php echo __('Candidate Name') ?></th>
+            <th scope="col" class="col email"><?php echo __('Email') ?></th>
+            <th scope="col" class="col experience"><?php echo __('Experience') ?></th>
+            <th scope="col" class="col jobpost"><?php echo __('Applied for') ?></th>
+            <th scope="col" class="col jobpost"><?php echo __('Uploaded File') ?></th>
+            <th scope="col" class="col date"><?php echo __('Date') ?></th>
+            
+            <th scope="col" class="col Status"><?php echo __('Action') ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+ foreach ($jobapplications as $key=>$item): 
+ ?>
+        <tr>
+            <td  data-th="<?= $block->escapeHtml(__('ID')) ?>" class="col id">
+                <?php echo $item->getIdJob() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Candidate Name')) ?>" class="col fname">
+                <?php echo $item->getCandiName() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Email')) ?>" class="col lname">
+                <?php echo $item->getCandiEmail() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Experience')) ?>" class="col lname">
+                <?php echo $item->getExperience() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Applied for')) ?>" class="col lname">
+                <?php echo $item->getJobPost() ?>
+            </td>
+
+            <td data-th="<?= $block->escapeHtml(__('Uploaded File')) ?>" class="col lname">
+                <a href="/<?= $block->getUploadDir()."/".$item->getUploadFile() ?>" target="_blank"><?= $item->getUploadFile() ?></a>
+            </td>
+            
+            <td data-th="<?= $block->escapeHtml(__('Application Date')) ?>"
+                class="col title"><?php echo date('Y-m-d', strtotime($item->getCreatedDate())); ?></td>
+            <td data-th="<?= $block->escapeHtml(__('Delete')) ?>"
+                class="col title">
+                <!-- <a class="viewapplication" data-id-job="<?=$item->getId()?>" href="<?= $this->getUrl('job/view/index/id_job/'.$item->getId().'/') ?>">View </a> -->
+                <a class="viewapplication" data-id-job="<?=$item->getId()?>" href="#">View</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="<?= $this->getUrl('job/apply/index/id_job/'.$item->getId().'/') ?>" >Edit </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="<?= $this->getUrl('job/apply/delete/id_job/'.$item->getIdJob().'/') ?>" >Delete</a>  
+
+
+                <div class="applicationdetail" id="<?= 'popup-modal_'.$item->getId()?>" style="display:none;">
+                    <h1> Application Detail </h1>
+                    <p><span class="ftitle">Name: </span><?= $item->getCandiName()?></p>
+                    <p><span class="ftitle">Email: </span><?= $item->getCandiEmail()?></p>
+                    <p><span class="ftitle">Experience: </span><?= $item->getExperience()?></p>
+                    <p><span class="ftitle">Applied For: </span><?= $item->getJobPost()?></p>
+                </div>
+
+               
+            </td>
+                  
+        </tr>
+    
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+    
+
+</div>
+<?php
+ }
+ ?>
+
+<script type="text/javascript">
+    require([
+        "jquery",
+        "Magento_Ui/js/modal/modal"
+    ],function($, modal) {
+//alert("jhkhkjhjhkjh")
+
+        // var options = {
+        //     type: 'popup',
+        //     responsive: true,
+        //     title: 'Main title',
+        //     buttons: [{
+        //         text: $.mage.__('Ok'),
+        //         class: '',
+        //         click: function () {
+        //             this.closeModal();
+        //         }
+        //     }]
+        // };
+
+       // var popup = modal(options, $('#modal'));
+            
+        $(".viewapplication").on('click',function(e){
+            $(".applicationdetail").hide();
+            var jid = $(this).attr('data-id-job');
+             
+           
+            $("#popup-modal_"+jid).toggle();
+            
+
+            var linktext = ($(this).text() == 'View')? 'Hide': 'View';
+            
+            $(this).text(linktext)
+            if(linktext == 'View'){
+                $("#popup-modal_"+jid).hide();
+            }
+
+            //  $('#popup-modal_1').modal('openModal');
+        });
+        
+        //$('#popup-modal_1').modal('openModal');
+        // $("#button").click(function() {
+        //     $('#modal').modal('openModal');
+        // });
+    });
+</script>
+
+
+<script>
+//     require(
+//         [
+//             'jquery',
+//             'Magento_Ui/js/modal/modal'
+//         ],
+//         function(
+//             $,
+//             modal
+//         ) {
+//            alert('test working');
+//             var options = {
+//                 type: 'popup',
+//                 responsive: true,
+//                 innerScroll: true,
+//                 title: 'popup modal title',
+//                 buttons: [{
+//                     text: jQuery.mage.__('Continue'),
+//                     class: '',
+//                     click: function () {
+//                         this.closeModal();
+//                     }
+//                 }]
+//             };
+// console.log(options);
+//             var popup = modal(options, jQuery('#popup-modal'));
+//             jQuery(".viewapplication").on('click',function(e){ 
+               
+//                 var jid = $(this).attr('data-id-job');
+//                 alert('test working'+jid);
+
+//                 jQuery("#popup-modal_"+jid).modal("openModal");
+//             });
+//         }
+//     );
+</script>

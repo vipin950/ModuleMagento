@@ -1,0 +1,76 @@
+ <?php $editdata=$block->editdetails();
+// // echo "<pre>";
+// // print_r($editdata->getData());
+// exit;
+?> 
+<div class="row">
+    <div class="col-md-8">
+        <form name="addData" method="post" id="addData" class="form"
+        action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+              data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+              data-mage-init='{"validation":{"rules": {"description": {"required":true}}}}'>
+            <fieldset class="fieldset">
+                <legend class="legend"><span><?= $block->escapeHtmlAttr(__('My Blog Form')) ?></span></legend>
+                <fieldset class="fieldset row">
+                    
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->
+                                escapeHtmlAttr(__('Title')) ?></span></label>
+                            <div class="control">
+                                <input name="title" id="title" title="title" value="<?= ($editdata->getTitle()) ? $editdata->gettitle(): ''; ?>" class="input-text validate-five-words" type="text">
+                            </div>
+                        </div>
+                        <!-- <div class="field email required">
+                            <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+                            <div class="control">
+                                <input name="email"
+                                    id="email"
+                                    title="<?= $block->escapeHtmlAttr(__('Email')) ?>"
+                                    value=""
+                                    class="input-text"
+                                    type="email"
+                                    data-validate="{required:true, 'validate-email':true}"
+                                    data-mage-init='{"mage/trim-input":{}}'
+                                />
+                            </div>
+                        </div> -->
+                        <div class="field comment required">
+                            <label class="label" for="comment">
+                                <span><?= $block->escapeHtml(__('Description')) ?></span>
+                            </label>
+                            <div class="control">
+                                <textarea name="description"
+                                        value="<?= ($editdata->getDescription()) ? $editdata->getDescription(): '';?>"
+                                        id="description"
+                                        title="<?= $block->escapeHtmlAttr(__('Description')) ?>"
+                                        class="input-text"
+                                        cols="5"
+                                        rows="3"
+                                        data-validate="{required:true}"
+                                ></textarea>
+                            </div>
+                        </div>
+        				<div class="field name col-required ">
+                            <label class="label" for="title"><span><?= $block->
+                                escapeHtmlAttr(__('Status')) ?></span></label>
+                            <div class="control">
+                              <select name="selectdata"> 
+                                <option value="1" <?= ($editdata->getStatus() ==1) ? 'selected': '';?>>Active</option>
+                                <option value="0" <?= ($editdata->getStatus() ==0) ? 'selected': '';?>>Inactive</option>
+
+                             </select>
+                            </div>
+                        </div>
+                    
+
+                </fieldset>
+			</fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action submit primary" title="submit"><span><?= $block->
+                        escapeHtmlAttr(__('Submit')) ?></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

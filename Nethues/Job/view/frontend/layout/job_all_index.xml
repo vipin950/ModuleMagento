@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Applications submitted for Jobs</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+           <block class="Nethues\Job\Block\Index" name="applicationlist" template="Nethues_Job::vipinjobs.phtml">
+            </block>
+
+        </referenceContainer>
+    </body>
+</page>

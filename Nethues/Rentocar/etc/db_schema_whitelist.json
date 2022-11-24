@@ -1,0 +1,47 @@
+{
+    "nethues_rentocar": {
+        "column": {
+            "id_car": true,
+            "id_owner": true,
+            "id_customer": true,
+            "car_name": true,
+            "car_rent": true,
+            "car_milage": true,
+            "car_details": true,
+            "is_booked": true,
+            "is_active": true,
+            "created_date": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "nethues_rentocar_carowner": {
+        "column": {
+            "id_owner": true,
+            "owner_name": true,
+            "owner_contact": true,
+            "owner_address": true,
+            "owner_rating": true,
+            "is_booked": true,
+            "is_active": true,
+            "created_date": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "nethues_rentocar_customer": {
+        "column": {
+            "id_customer": true,
+            "customer_name": true,
+            "customer_contact": true,
+            "customer_address": true,
+            "is_active": true,
+            "created_date": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

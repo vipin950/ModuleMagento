@@ -1,0 +1,122 @@
+<?php
+//$post_data = $block->getViewModel(); 
+$candidate_data  =  $block->editCandidate();
+ 
+
+if($candidate_data->getIdJob()){
+   
+    $name       = $candidate_data->getCandiName();
+    $email      = $candidate_data->getCandiEmail();
+    $experience = $candidate_data->getExperience();
+    $jobpost    = $candidate_data->getJobPost();
+
+  
+
+}else{
+    $post_data = $block->getViewModel();   //This  getViewModel comes from the applyform's argument name "view_model" in the file job_apply_index and pointing to UserDataProvider class
+    $name       = $post_data->getUserName();
+    $email      = $post_data->getUserEmail();
+    $experience = $post_data->getUserExperience();
+    $jobpost    = $post_data->getUserJobPost();
+
+}
+
+
+
+
+
+// echo "<pre>";
+// print_r($candidate_data->getData());
+// exit;
+
+?>
+<div class="row">
+<a class="action primary checkout" style="float:right" href="<?= $this->getUrl('job/applications/') ?>">See All Applications</a>
+    <div class="col-md-8">
+        <form name="addData" method="post" enctype="multipart/form-data"  id="addData" class="form"
+        action="<?php echo $block->getFormAction(); ?>"
+              data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+              data-mage-init='{"validation":{}}'>
+            
+            <fieldset class="fieldset">
+                <legend class="legend"><span><?= $block->escapeHtmlAttr(__('Fill Member Details carefully')) ?></span></legend>
+                <fieldset class="fieldset row">
+                    <div class="fields col-md-6">
+
+                        <div class="field candi_name required">
+                            <label class="label" for="name"><span><?= $block->
+                                escapeHtmlAttr(__('Name')) ?></span></label>
+                            <div class="control">
+                                <input name="candi_name" id="candi_name" title="Applicant's first name" value="<?= ($name)? $name: '' ?>" class="input-text validate-alpha" type="text"
+                                data-validate="{required:true, validate-not-number-first:true, validate-alphanum-with-spaces:true}"  >
+                            </div>
+                        </div>
+                        
+                        <input name="id_job" id="id_job"  value="<?= ($candidate_data->getIdJob())? $candidate_data->getIdJob(): '' ?>"  type="hidden" >
+
+                        <div class="field email required">
+                       
+                            <label class="label" for="lname"><span><?= $block->
+                                escapeHtmlAttr(__('Email')) ?></span></label>
+                            <div class="control">
+                                <input name="candi_email" id="candi_email" title="candidate's email" value="<?= ($email)? $email: '' ?>" class="input-text" type="text"
+                                       data-validate="{required:true, 'validate-email':true}">
+                            </div>
+                        </div>
+
+
+
+                        <div class="field experience required">
+                       
+                            <label class="label" for="experience"><span><?= $block->
+                                escapeHtmlAttr(__('Experience in year')) ?></span></label>
+                            <div class="control">
+                                <select name="experience"  data-validate="{'validate-select':true,'validate-greater-than-zero':true}"> 
+                                <?php for ($x = 0; $x <= 10; $x++) { ?>
+                                        <option value="<?=$x;?>"  <?= ($experience == $x)? 'selected': '' ?>><?= ($x==0)? "Choose you experience in year" : $x    ?></option>
+                                    
+                                <?php }?>
+                            </select>
+                            </div>
+                        </div>
+
+
+
+                        <div class="field job_post required">
+                       
+                            <label class="label" for="job_post"><span><?= $block->
+                                escapeHtmlAttr(__('Job Post')) ?></span></label>
+                            <div class="control">
+                             <select name="job_post" > 
+                                <option value="Dev"  <?= ($jobpost == 'Dev')? 'selected': '' ?>>Dev</option>
+                                <option value="QA" <?= ($jobpost == 'QA')? 'selected': '' ?>>QA</option>
+                                <option value="DEVOOPS" <?= ($jobpost == 'DEVOOPS')? 'selected': '' ?>>DEVOOPS</option>
+
+                             </select>
+
+                            </div>
+                        </div>
+
+
+                        <div class="field job_post required">
+                       
+                            <label class="label" for="upload_file"><span><?= $block->
+                                escapeHtmlAttr(__('Upload file')) ?></span></label>
+                            <div class="control">
+                             <input type="file" name="upload_file" accept="application/pdf,text/plain" id="upload_file" title="<?= $block->
+                                escapeHtmlAttr(__('Upload file')) ?>" class="input-text" data-validate="required-file:true" /> 
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+         
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action submit primary" title="submit"><span><?= $block->
+                        escapeHtmlAttr(__('Submit')) ?></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

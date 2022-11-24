@@ -1,0 +1,66 @@
+<?php
+//  $members = $block->getMembers(); 
+// foreach($members as $key => $member)
+// {
+//     echo $member->getIdMember();
+//     echo "<br />";
+//     echo $member->getFname();
+//     echo "<br />";
+    
+// }
+?>
+
+
+<?php
+ $members = $block->getMembers(); 
+ 
+if ($members->count()) {
+?>
+<div class="table-wrapper orders-history">
+    <table class="data table table-order-items history" id="my-orders-table">
+        <caption class="table-caption"><?php echo __('Grid Record') ?></caption>
+        <thead>
+        <tr>
+            <th scope="col" class="col id_member"><?php echo __('ID') ?></th>
+            <th scope="col" class="col fname"><?php echo __('Frist Name') ?></th>
+            <th scope="col" class="col lname"><?php echo __('Last Name') ?></th>
+            <th scope="col" class="col status"><?php echo __('Status') ?></th>
+            <th scope="col" class="col createddate"><?php echo __('Created Date') ?></th>
+            <th scope="col" class="col createddate"><?php echo __('Action') ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+ foreach ($members as $item): ?>
+        <tr>
+            <td data-th="<?= $block->escapeHtml(__('ID')) ?>" class="col id">
+                <?php echo $item->getId() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Frist Name')) ?>" class="col fname">
+                <?php echo $item->getFname() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Last Name')) ?>" class="col lname">
+                <?php echo $item->getLname() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Status')) ?>" class="col status">
+                <?php echo $item->getStatus() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Created Date')) ?>"
+                class="col title"><?php echo date('Y-m-d', strtotime($item->getCreatedDate())); ?></td>
+            <td data-th="<?= $block->escapeHtml(__('Delete')) ?>"
+                class="col title">
+                <a href="<?= $this->getUrl('member/view/index/id_member/'.$item->getId().'/') ?>">View </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="<?= $this->getUrl('member/register/index/id_member/'.$item->getId().'/') ?>" >Edit </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="<?= $this->getUrl('member/register/delete/id_member/').$item->getId().'/'; ?>" >Delete</a>  
+
+               
+            </td>
+                  
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?php
+ }
+ ?>

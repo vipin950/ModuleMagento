@@ -1,0 +1,95 @@
+<div class="row">
+    <div class="col-md-8">
+        <form name="addData" method="post" id="addData" class="form"
+        action="<?php echo $block->getFormAction(); ?>"
+              data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+              data-mage-init='{"validation":{}}'>
+            
+            <fieldset class="fieldset">
+                <legend class="legend"><span><?= $block->escapeHtmlAttr(__('Fill Member Details carefully')) ?></span></legend>
+                <fieldset class="fieldset row">
+                    <div class="fields col-md-6">
+
+                        <div class="field fname required">
+                            <label class="label" for="name"><span><?= $block->
+                                escapeHtmlAttr(__('First Name')) ?></span></label>
+                            <div class="control">
+                                <input name="fname" id="fname" title="Member's first name" value="<?= (isset($_POST['fname']))? $_POST['fname']:''; ?>" class="input-text validate-alpha" type="text"
+                                data-validate="{required:true}"   >
+                            </div>
+                        </div>
+
+                        <div class="field lname required">
+                            <label class="label" for="lname"><span><?= $block->
+                                escapeHtmlAttr(__('Last Name')) ?></span></label>
+                            <div class="control">
+                                <input name="lname" id="lname" title="Member's last name" value="<?= $block->getPostData('lname'); ?>" class="input-text" type="text"
+                                       data-validate="{required:true}">
+                            </div>
+                        </div>
+
+                     <div class="field mobile required">
+                            <label class="label" for="mobile"><span><?php echo $block->
+                                escapeHtmlAttr(__('Mobile Number')) ?></span></label>
+                            <div class="control">
+                                <input name="mobile" id="mobile" title="Member's mobile number" value="" class="input-text require-ten-digits" type="number" 
+                                       data-validate="{required:true, 'validate-length':true}">
+                            </div>
+                        </div>
+
+
+                        <div class="field level ">
+                            <label class="label" for="level"><span><?= $block->escapeHtmlAttr(__('Member Level, please enter any 0 to 15 only')) ?></span></label>
+                            <div class="control">
+                                <input name="level" id="level" title="Member's last name" value=""  class="input-number" type="number"
+                                       >
+                            </div>
+                        </div>
+
+
+                        <div class="field dob required">
+                            <label class="label" for="dob"><span><?= $block->escapeHtmlAttr(__('Date of Birth')) ?></span></label>
+                            <div class="control">
+                                <input name="dob" id="dob" title="enter age" value="" class="input-date validate-date" type="date"
+                                       data-validate="{required:true}">
+                            </div>
+                        </div>
+
+                        
+                        <div class="field address required">
+                        <label class="label" for="address"><span><?= $block->escapeHtmlAttr(__('Address')) ?></span></label>
+                        <div class="control">
+                            <textarea name="address"
+                                    id="address"
+                                    title="<?=  $block->escapeHtmlAttr(__('Address')) ?>"
+                                    class="input-text validate-five-words"
+                                    cols="5"
+                                    rows="3"
+                                    data-validate="{required:true}"></textarea>
+                        </div>
+                        </div>
+                        
+                        <div class="field name ">
+                            <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Status')) ?></span></label>
+                            <div class="control">
+                              <select name="status"> 
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+
+                             </select>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </fieldset>
+         
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action submit primary" title="submit"><span><?= $block->
+                        escapeHtmlAttr(__('Submit')) ?></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

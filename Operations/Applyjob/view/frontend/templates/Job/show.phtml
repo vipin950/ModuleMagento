@@ -1,0 +1,44 @@
+<?php $members = $block->getCollection();
+   if ($members->count()>0) {
+   ?>
+<button>
+<table class="data table table-order-items ">
+   <caption class="table-caption">Add Data</caption>
+   <thead>
+      <tr>
+         <th><?php echo __('ID') ?></th>
+         <th>
+            <select name="job_post" >
+               <option value="" selected disabled  >Select Job Posts </option>
+               <?php 
+                foreach ($members as $key=>$member):?>
+               <option value="{{$key}}"><?php echo $member->getJobPost();?></option>
+               <?php endforeach;?>
+            </select>
+         </th>
+      </tr>
+   </thead>
+   <tbody>
+      <?php
+         foreach($members as $key=>$item)
+         {
+            ?>
+      <tr>
+         <td>
+            <?php echo $item->getJobId(); ?>
+         </td>
+         <td>
+      </tr>
+      <?php 
+         }
+         ?>
+   </tbody>
+</table>
+<?php 
+   }
+   
+   else 
+   {
+    echo "No data Found Here";
+   }
+   ?>

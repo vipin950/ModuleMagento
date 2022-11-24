@@ -1,0 +1,63 @@
+<?php $members = $block->getAdminCollection();
+
+if ($members->count()>0) {
+?>
+    <table class="data table table-order-items table-striped" border="1" width="100%"> 
+        <thead>
+        <tr>
+            <th><?php echo __('ID') ?></th>
+            <th><?php echo __('Name') ?></th>
+            <th><?php echo __('Email') ?></th>
+            <th><?php echo __('TelePhone') ?></th>
+            <th><?php echo __('Experience') ?></th>
+            <th><?php echo __('Job Posts') ?></th>
+            <th><?php echo __('Upload File') ?></th>
+        </tr>
+        </thead>
+   <tbody>
+    
+    <?php
+     foreach($members as $key=>$item)
+    {
+        ?>
+        <tr>
+        <td>
+        <?php echo $item->getId(); ?>
+        </td>
+        <td >
+        <?php echo $item->getName(); ?>
+        </td>
+        <td>
+        <?php echo $item->getEmail(); ?>
+        </td>
+        <td>
+        <?php echo $item->getTelephone();?>
+        </td>
+        <td>
+        <?php echo $item->getExperiance();?>
+        </td>
+        <td>
+        <?php echo $item->getJobposts();?>
+        </td>
+        <td>
+        <?php echo $item->getUploadFile();?>
+        
+        </td>
+       
+    </tr>
+<?php 
+    }
+    ?>
+  </tbody>
+</table>
+    <?php 
+}
+
+else 
+{
+ echo "No data Found Here";
+}
+?>
+
+
+

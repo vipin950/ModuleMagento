@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">candidate_listing.candidate_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+      <buttons>
+            <button name="add">
+                <url path="job/application/newjob"/>
+                <class>primary</class>
+                <label translate="true">Add New Job</label>
+            </button>
+        </buttons>
+             <!-- <buttons>
+            <button name="delete">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add post Job</label>
+            </button>
+        </buttons> -->
+        <spinner>candidate_listing</spinner>
+        <deps>
+            <dep>candidate_listing.candidate_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="candidate_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="dataScope" xsi:type="string">filters.store_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+                    <!-- <filterUrlParams>
+            <param name="jobposts">1</param>
+            </filterUrlParams> -->
+        </settings>
+        <aclResource>Operations_Applyjob::job</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="candidate_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+     <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+          <columnsControls name="columns_controls"/>   
+         <!-- code  -->
+ <filters name="listing_filters">
+            <filterSelect name="store_id" provider="${ $.parentName }">
+                <settings>
+                    <options class="Magento\Store\Ui\Component\Listing\Column\Store\Options"/>
+                    <caption translate="true">All Store Views</caption>
+                    <label translate="true">Store View</label>
+                    <dataScope>store_id</dataScope>
+                </settings>
+            </filterSelect>
+        </filters>
+<!--code end-->
+
+        <!-- <filterSelect name="store_id" provider="${ $.parentName }">
+                <settings>
+                    <options class="Magento\Store\Ui\Component\Listing\Column\Store\Options"/>
+                    <caption translate="true">All Store Views</caption>
+                    <label translate="true">Store View</label>
+                    <dataScope>store_id</dataScope>
+                </settings>
+            </filterSelect>  -->
+        <!-- </filters> -->
+       <massaction name="listing_massaction"
+                    component="Magento_Ui/js/grid/tree-massactions"
+                    class="\Magento\Catalog\Ui\Component\Product\MassAction">
+            <action name="delete">
+                <settings>
+                    <confirm>
+                        <message translate="true">Delete selected items?</message>
+                        <title translate="true">Delete items</title>
+                    </confirm>
+                    <url path="job/application/massdelete"/>
+                    <type>delete</type>
+                    <label translate="true">Delete</label>
+                </settings>
+            </action>
+               <action name="edit">
+                <settings>
+                    <callback>
+                        <target>editSelected</target>
+                        <provider>candidate_listing.candidate_listing.candidate_listing_editor</provider>
+                    </callback>
+                    <type>edit</type>
+                    <label translate="true">Edit</label>
+                </settings>
+            </action>
+            
+        </massaction> 
+        <paging name="listing_paging"/>
+    </listingToolbar> 
+
+<!-- display column -->
+  <columns name="candidate_listing">
+        <settings>
+            <editorConfig>
+                <param name="clientConfig" xsi:type="array">
+                    <item name="saveUrl" xsi:type="url" path="job/application/inlineEdit"/>
+                    <item name="validateBeforeSave" xsi:type="boolean">false</item>
+                </param>
+                <param name="indexField" xsi:type="string">id</param>
+                <param name="enabled" xsi:type="boolean">true</param>
+                <param name="selectProvider" xsi:type="string">candidate_listing.candidate_listing.candidate_listing.ids</param>
+            </editorConfig>
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <item name="provider" xsi:type="string">candidate_listing.candidate_listing.candidate_listing_editor</item>
+                    <item name="target" xsi:type="string">startEdit</item>
+                    <item name="params" xsi:type="array">
+                        <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+                        <item name="1" xsi:type="boolean">true</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="id">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">ID</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="name">
+            <settings>
+                <filter>text</filter>
+                <editor>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>text</editorType>
+                </editor>
+                <label translate="true">Name</label>
+            </settings>
+        </column>
+        <column name="email">
+            <settings>
+                <filter>text</filter>
+                <editor>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">true</rule>
+                        <rule name="no-marginal-whitespace" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>text</editorType>
+                </editor>
+                <label translate="true">Email</label>
+            </settings>
+        </column>
+        
+         <column name="telephone">
+            <settings>
+                <filter>text</filter>
+                <editor>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">true</rule>
+                        <rule name="no-marginal-whitespace" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>text</editorType>
+                </editor>
+                <label translate="true">Telephone</label>
+            </settings>
+        </column>
+
+         <column name="experiance">
+            <settings>
+                <filter>text</filter>
+                <editor>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">true</rule>
+                        <rule name="no-marginal-whitespace" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>text</editorType>
+                </editor>
+                <label translate="true">Experiance</label>
+            </settings>
+        </column>
+
+            <column name="jobposts">
+            <settings>
+                <filter>text</filter>
+                <editor>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">true</rule>
+                        <rule name="no-marginal-whitespace" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>text</editorType>
+                </editor>
+                <label translate="true">Jobposts</label>
+            </settings>
+        </column>
+
+           <!-- <column name="upload_file">
+            <settings>
+                <filter>text</filter>
+                <editor>
+                    <validation>
+                        <rule name="required-entry" xsi:type="boolean">true</rule>
+                        <rule name="no-marginal-whitespace" xsi:type="boolean">true</rule>
+                    </validation>
+                    <editorType>text</editorType>
+                </editor>
+                <label translate="true">Upload File</label>
+            </settings>
+        </column> -->
+    
+      
+  
+<!-- end display column -->
+
+
+
+
+
+
+    <!-- <columns name="candidate_listing">
+         <settings>
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <item name="provider" xsi:type="string">candidate_listing.candidate_listing.product_columns.actions</item>
+                    <item name="target" xsi:type="string">applyAction</item>
+                    <item name="params" xsi:type="array">
+                        <item name="0" xsi:type="string">edit</item>
+                        <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings> -->
+        <!-- <selectionsColumn name="ids" sortOrder="10">
+            <settings>
+                 <indexField>id</indexField> 
+            </settings>
+        </selectionsColumn>
+        <column name="id" sortOrder="27">
+            <settings> -->
+                <!-- <filter>textRange</filter> -->
+                <!-- <label translate="true">ID</label> -->
+                <!-- <sorting>asc</sorting> -->
+            <!-- </settings>
+        </column>
+
+   <column name="name" sortOrder="35">
+       <settings> -->
+                <!-- <addField>true</addField> -->
+                <!-- <filter>text</filter> -->
+                <!-- <bodyTmpl>Magento_Catalog/grid/cells/preserved</bodyTmpl> -->
+                <!-- <label translate="true">Name</label>
+            </settings>
+            </column> -->
+          <!-- <column name="name" sortOrder="20">
+            <settings> -->
+                <!-- <filter>textRange</filter> -->
+                <!-- <label translate="true">Name</label> -->
+                <!-- <sorting>asc</sorting> -->
+            <!-- </settings>
+        </column> -->
+<!-- 
+          <column name="email" sortOrder="45">
+            <settings>
+                  <filter>text</filter>  
+                <label translate="true">Email</label> -->
+                <!-- <sorting>asc</sorting> -->
+            <!-- </settings>
+        </column>
+
+           <column name="telephone" sortOrder="40">
+            <settings>
+                 <filter>textRange</filter> 
+                <label translate="true">Telephone</label> -->
+                <!-- <sorting>asc</sorting> -->
+            <!-- </settings>
+        </column>
+
+         <column name="experiance" sortOrder="50">
+            <settings> -->
+                <!-- <filter>textRange</filter> -->
+                <!-- <label translate="true">Experiance</label> -->
+                <!-- <sorting>asc</sorting> -->
+            <!-- </settings>
+        </column> <column name="jobposts" sortOrder="60">
+            <settings> -->
+                <!-- <filter>textRange</filter> -->
+                <!-- <label translate="true">JobPost</label> -->
+                <!-- <sorting>asc</sorting> -->
+            <!-- </settings>
+        </column> -->
+        <!-- <column name="thumbnail" class="Magento\Catalog\Ui\Component\Listing\Columns\Thumbnail" component="Magento_Ui/js/grid/columns/thumbnail" sortOrder="20">
+            <settings>
+                <altField>name</altField>
+                <hasPreview>1</hasPreview>
+                <addField>true</addField>
+                <label translate="true">Thumbnail</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="name" sortOrder="30">
+            <settings>
+                <addField>true</addField>
+                <filter>text</filter>
+                <bodyTmpl>Magento_Catalog/grid/cells/preserved</bodyTmpl>
+                <label translate="true">Name</label>
+            </settings>
+        </column>
+        <column name="type_id" component="Magento_Ui/js/grid/columns/select" sortOrder="40">
+            <settings>
+                <options class="Magento\Catalog\Model\Product\Type"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Type</label>
+            </settings>
+        </column>
+        <column name="attribute_set_id" class="Magento\Catalog\Ui\Component\Listing\Columns\AttributeSetId" component="Magento_Ui/js/grid/columns/select" sortOrder="50">
+            <settings>
+                <options class="Magento\Catalog\Model\Product\AttributeSet\Options"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Attribute Set</label>
+            </settings>
+        </column>
+        <column name="sku" sortOrder="60">
+            <settings>
+                <filter>text</filter>
+                <bodyTmpl>Magento_Catalog/grid/cells/preserved</bodyTmpl>
+                <label translate="true">SKU</label>
+            </settings>
+        </column>
+        <column name="price" class="Magento\Catalog\Ui\Component\Listing\Columns\Price" sortOrder="70">
+            <settings>
+                <addField>true</addField>
+                <filter>textRange</filter>
+                <label translate="true">Price</label>
+            </settings>
+        </column>
+        <column name="visibility" component="Magento_Ui/js/grid/columns/select" sortOrder="80">
+            <settings>
+                <addField>true</addField>
+                <options class="Magento\Catalog\Model\Product\Visibility"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Visibility</label>
+            </settings>
+        </column>
+        <column name="status" component="Magento_Ui/js/grid/columns/select" sortOrder="90">
+            <settings>
+                <addField>true</addField>
+                <options class="Magento\Catalog\Model\Product\Attribute\Source\Status"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
+        <column name="websites" class="Magento\Catalog\Ui\Component\Listing\Columns\Websites" sortOrder="100">
+            <settings>
+                <addField>true</addField>
+                <options class="Magento\Store\Model\ResourceModel\Website\Collection"/>
+                <dataType>text</dataType>
+                <label translate="true">Websites</label>
+            </settings>
+        </column>
+        -->
+        <!-- <actionsColumn name="actions" class="Magento\Catalog\Ui\Component\Listing\Columns\ProductActions" sortOrder="200">
+            <settings>
+                <indexField>id</indexField>
+            </settings>
+        </actionsColumn>  -->
+            <actionsColumn name="actions" class="Operations\Applyjob\Ui\Component\Listing\Column\CustomActions" sortOrder="230">
+            <settings>
+                <indexField>id</indexField>
+            </settings>
+        </actionsColumn> 
+      </columns>  
+</listing>

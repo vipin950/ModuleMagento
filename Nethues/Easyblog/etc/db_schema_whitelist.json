@@ -1,0 +1,14 @@
+{
+    "nethues_blog": {
+        "column": {
+            "id_blog": true,
+            "title": true,
+            "description": true,
+            "status": true,
+            "created_date": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

@@ -1,0 +1,55 @@
+<?php
+$collection = $block->getDetails();
+// echo '<pre>';
+// echo "sjhjsd";
+// print_r($collection);
+// echo '<pre>';
+// exit;
+// if ($collection->count()) {
+?>
+<div class="table-wrapper orders-history">
+    <table class="data table table-order-items history" id="my-orders-table">
+        <caption class="table-caption"><?php echo __('Grid Record') ?></caption>
+        <thead>
+        <tr>
+            <th scope="col" class="col id"><?php echo __('ID') ?></th>
+            <th scope="col" class="col name"><?php echo __('TITLE') ?></th>
+            <th scope="col" class="col email"><?php echo __('DESCRIPTION') ?></th>
+            <th scope="col" class="col telephone"><?php echo __('STATUS') ?></th>
+            <th scope="col" class="col createat"><?php echo __('CREATED AT') ?></th>
+            <th scope="col" class="col action"><?php echo __('ACTION') ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+ foreach ($collection as $item): ?>
+        <tr>
+            <td data-th="<?= $block->escapeHtml(__('ID')) ?>" class="col id">
+                <?php echo $item->getArticleId() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('TITLE')) ?>" class="col title">
+                <?php echo $item->getTitle() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Description')) ?>" class="col description">
+                <?php echo $item->getDescription() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('STATUS')) ?>" class="col status">
+                <?php echo $item->getStatus() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Created At')) ?>"
+                class="col title"><?php echo date('Y-m-d', strtotime($item->getCreatedAt())); ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Action')) ?>" class="col delete">
+                <a href='<?php echo $this->getUrl('blogform/post/delete/id/'.$item->getId(), ['_secure' => true]); ?>'>DELETE</a>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Action')) ?>" class="col edit">
+                <a href='<?php echo $this->getUrl('blogform/index/view/id/'.$item->getId(), ['_secure' => true]); ?>'>EDIT</a>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div> 
+<!-- <?php
+//  }
+ ?> -->
