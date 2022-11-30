@@ -13,4 +13,15 @@
         </arguments>
     </virtualType>
     <preference for="Nethues\Job\Api\BlockRepositoryInterface" type="Nethues\Job\Model\BlockRepository" />
+    <type name="Magento\Newsletter\Model\SubscriptionManager">
+        <plugin name="newsletter-update" type="Nethues\Job\Model\SubscriptionManager" sortOrder="1"></plugin>
+    </type>
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="product-info-override" type="Nethues\Job\Model\Product" sortOrder="1"></plugin>
+    </type>
+    
+    <type name="Magento\Checkout\Model\Cart">
+        <plugin name="cart-vip-update" type="Nethues\Job\Model\Cart" sortOrder="1"></plugin>
+    </type>
+    
 </config>
