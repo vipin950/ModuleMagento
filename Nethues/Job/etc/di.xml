@@ -18,10 +18,14 @@
     </type>
     <type name="Magento\Catalog\Model\Product">
         <plugin name="product-info-override" type="Nethues\Job\Model\Product" sortOrder="1"></plugin>
-    </type>
-    
+    </type>    
     <type name="Magento\Checkout\Model\Cart">
         <plugin name="cart-vip-update" type="Nethues\Job\Model\Cart" sortOrder="1"></plugin>
     </type>
+    <type name="Magento\Catalog\Ui\Component\Listing\Columns\ProductActions">
+        <plugin name="admin-procatalog-update" type="Nethues\Job\Ui\Component\Listing\Columns\ProductActions" sortOrder="1"></plugin>
+    </type>
+    
+   
     
 </config>
